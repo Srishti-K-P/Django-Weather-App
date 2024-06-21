@@ -67,6 +67,9 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ## Screenshots
 
+![Weather App Screenshot](https://github.com/Srishti-K-P/Django-Weather-App/blob/main/screenshots/SS1.png)
+
+![Weather App Screenshot](https://github.com/Srishti-K-P/Django-Weather-App/blob/main/screenshots/SS2.png)
 
 
 ## License
