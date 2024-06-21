@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <meta name="description" content="description"/>
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+</head>
+<body class="weather-{{ description|slugify }}">
+    <header class="header">
+        <div class="logo">
+            <img src="{% static 'images/weatherlogo.png' %}" alt="Weather App Logo" class="logo-img">
+        </div>
+    </header>
+    <div class="container">
+        <form method='POST' class="search-form">
+            {% csrf_token %}
+            <input type='text' placeholder='Enter a City' name='city' class="search-input"/>
+            <button type='submit' class="search-button">Enter</button>
+        </form>
+        <div class="weather-details">
+            {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% else %}
+                <div class="weather-info">
+                    <h1 class="temp">{{ temp }}&#8451;</h1>
+                    <h1 class="description">{{ description }}</h1>
+                    <h1 class="day">{{ day }}</h1>
+                    <h1 class="city">{{ city }}</h1>
+                    <h1 class='humidity'>Humidity: {{ humidity }}%</h1>
+                    <h1 class='windspeed'>Wind Speed: {{ wind_speed }} m/s</h1>
+                    <img src='https://api.openweathermap.org/img/w/{{ icon }}.png' width='100px' alt="Weather Icon" class="weather-icon"/>
+                </div>
+            {% endif %}
+        </div>
+        <div id="map" class="map"></div>
+        <button class="share-button" onclick="shareWeather()">Share</button>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-section about-us">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-section social-media">
+            <h3>Follow Us</h3>
+            <div class="social-media-icons">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="{% static 'images/facebook.jpg' %}" alt="Facebook" class="social-icon">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="{% static 'images/X.jpg' %}" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="{% static 'images/insta.jpg' %}" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="footer-section legal">
+            <ul>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-section copyright">
+            <p>&copy; The Weather App 2024</p>
+        </div>
+    </footer>
+    <script>
+        function initMap() {
+            const city = "{{ city }}";
+            const geocoder = new google.maps.Geocoder();
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: { lat: -34.397, lng: 150.644 },
+            });
+            geocoder.geocode({ address: city }, (results, status) => {
+                if (status === "OK") {
+                    map.setCenter(results[0].geometry.location);
+                    new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                    });
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+        }
+
+        function shareWeather() {
+            const city = "{{ city }}";
+            const description = "{{ description }}";
+            const temp = "{{ temp }}";
+            const shareText = `The weather in ${city} is currently ${description} with a temperature of ${temp}°C.`;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Weather App',
+                    text: shareText,
+                    url: window.location.href,
+                }).catch((error) => console.log('Error sharing', error));
+            } else {
+                alert('Your browser does not support the Web Share API');
+            }
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+</html>
