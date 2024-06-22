@@ -1,6 +1,6 @@
-# Live Weather App
+# The Weather App
 
-Live Weather App is a Django-based web application that provides real-time weather updates for cities worldwide. It uses the OpenWeatherMap API to fetch weather data and Google Maps API to display location maps.
+The Weather App is a Django-based web application that provides real-time weather updates for cities worldwide. It uses the OpenWeatherMap API to fetch weather data and Google Maps API to display location maps.
 
 ## Features
 
