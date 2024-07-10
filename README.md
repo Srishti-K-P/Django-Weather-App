@@ -44,7 +44,6 @@ Follow these instructions to get a copy of the project up and running on your lo
    - Add the following environment variables:
 
      ```bash
-     OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
      GOOGLE_MAPS_API_KEY=your_google_maps_api_key
      
 4. Run migrations:
