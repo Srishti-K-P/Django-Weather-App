@@ -239,11 +239,3 @@ body {
     background-color: #074d7e;
 }
 
-.container2 {
-    background-color: #fff; /* White background for content */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-    margin: 20px auto;
-    max-width: 800px;
-}
