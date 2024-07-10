@@ -5,7 +5,7 @@ import datetime
 def index(request):
     if 'city' in request.POST and request.POST['city'].strip():
         city = request.POST['city']
-        apikey = 'INCLUDE YOUR API KEY HERE :)'
+        apikey = 'cc41f160699d00c5047841b2b8a531bc'
         URL = 'https://api.openweathermap.org/data/2.5/weather'
         parameters = {'q': city, 'appid': apikey, 'units': 'metric'}
         
@@ -26,3 +26,18 @@ def index(request):
         context = {'error': 'Please enter a Location.'}
 
     return render(request, 'index.html', context)
+
+def about(request):
+    return render(request, 'about.html')
+
+def terms(request):
+    return render(request, 'terms.html')
+
+def privacy(request):
+    return render(request, 'privacy.html')
+
+def help(request):
+    return render(request, 'help.html')
+
+def support(request):
+    return render(request, 'support.html')
