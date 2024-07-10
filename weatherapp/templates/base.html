@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Weather App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'images/weatherlogo.png' %}" alt="Weather App Logo" class="logo-img"></a>
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="footer">
+        <div class="footer-section about-us">
+            <ul>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'help' %}">Help</a></li>
+                <li><a href="{% url 'support' %}">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-section social-media">
+            <h3>Follow Us</h3>
+            <div class="social-media-icons">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="{% static 'images/facebook.jpg' %}" alt="Facebook" class="social-icon">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="{% static 'images/X.jpg' %}" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="{% static 'images/insta.jpg' %}" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="footer-section legal">
+            <ul>
+                <li><a href="{% url 'terms' %}">Terms of Use</a></li>
+                <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-section copyright">
+            <p>&copy; The Weather App 2024</p>
+        </div>
+    </footer>
+</body>
+</html>
