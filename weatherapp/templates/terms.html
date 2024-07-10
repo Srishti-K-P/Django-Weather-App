@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Terms and Conditions{% endblock %}
+
+{% block content %}
+<div class="container2">
+    <h1>Terms of Use</h1>
+    <p>These terms of use govern your use of our Weather App. By using our app, you agree to abide by these terms.</p>
+    <h2>Acceptable Use</h2>
+    <p>You agree to use our app only for lawful purposes and in accordance with our terms and conditions.</p>
+    <h2>Changes to Terms</h2>
+    <p>We reserve the right to update or modify these terms at any time. Please check this page periodically for changes.</p>
+    <h2>Contact Us</h2>
+    <p>If you have any questions about our terms of use, please contact us at info@theweatherapp.com.</p>
+    <div class="back-button-container">
+        <a href="{% url 'index' %}" class="back-button">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
