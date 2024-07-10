@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Help{% endblock %}
+
+{% block content %}
+<div class="container2">
+    <h1>Help</h1>
+    <p>Welcome to our Help Center! Here, you can find answers to common questions and learn how to use our Weather App effectively.</p>
+    <h3>FAQs</h3>
+    <p>Explore our frequently asked questions to find quick solutions to common issues.</p>
+    <div class="faq-list">
+        <h2>How accurate is the weather information provided by your app?</h2>
+        <p>Our app uses data from the OpenWeatherMap API, known for its accuracy in weather forecasting. However, weather patterns can sometimes change rapidly, so we recommend checking the app regularly for updates.</p>
+        <br>
+        <h2>How can I change the default city for weather updates?</h2>
+        <p>To change your default city, simply enter a new city name in the search bar at the top of the app's homepage and click 'Enter'. The app will then update the weather information for the newly selected city.</p>
+        <br>
+        <h2>What do the different weather icons represent?</h2>
+        <p>The weather icons displayed in the app represent various weather conditions such as clear skies, rain, snow, and clouds. Hovering over each icon provides a tooltip with additional details about the weather condition.</p>
+        <br>
+        <h2>Why am I seeing an error message when trying to fetch weather data?</h2>
+        <p>Error messages may occur due to network issues or temporary server problems. Please ensure you have a stable internet connection and try refreshing the app. If the issue persists, contact our support team for assistance.</p>
+        <br>
+        <h2>Is the app available in multiple languages?</h2>
+        <p>Currently, our app supports English as the primary language. We are working on adding support for additional languages in future updates to enhance user accessibility.</p>
+        <br>
+        <h2>Can I view historical weather data for a specific date?</h2>
+        <p>At present, our app focuses on providing real-time weather updates. We do not offer historical weather data. However, we continuously evaluate user feedback and may consider adding this feature in the future.</p>
+        <br>
+        <h2>How do I share weather information from the app with others?</h2>
+        <p>To share weather information, click on the 'Share' button located below the weather details section. This feature allows you to share the current weather conditions via email, social media, or messaging apps.</p>
+        <br>
+        <h2>What devices and browsers are compatible with your app?</h2>
+        <p>Our app is designed to be compatible with most modern web browsers such as Chrome, Firefox, Safari, and Edge. It is also optimized for use on desktops, laptops, tablets, and mobile devices running iOS or Android.</p>
+        <br>
+        <h2>How can I provide feedback or suggestions for improving the app?</h2>
+        <p>We value your feedback! You can send us your suggestions or report any issues via email at feedback@yourweatherapp.com. Your input helps us enhance the app and provide a better user experience.</p><br>
+    </div>
+    <h3>Contact Support</h3>
+    <p>If you need any assistance, please contact our support team at support@theweatherapp.com.</p>
+    <div class="back-button-container">
+        <a href="{% url 'index' %}" class="back-button">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
