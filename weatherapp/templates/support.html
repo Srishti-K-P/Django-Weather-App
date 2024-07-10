@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Support{% endblock %}
+
+{% block content %}
+<div class="container2">
+    <h1>Support</h1>
+    <p>For technical assistance or support inquiries, please contact our support team via the following methods:</p>
+    <ul>
+        <li>Email: support@theweatherapp.com</li>
+        <li>Phone: +1-123-456-7890 (24/7 support line)</li>
+    </ul>
+    <p>Our support staff is available around the clock to address any issues you may encounter with our app.</p>
+    <h2>Support Resources</h2>
+    <p>Explore our <a href="{% url 'help' %}">Help Center</a> for FAQs, troubleshooting guides, and more.</p>
+    <div class="back-button-container">
+        <a href="{% url 'index' %}" class="back-button">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
