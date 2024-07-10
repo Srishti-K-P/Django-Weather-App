@@ -7,7 +7,7 @@
     <meta name="description" content="description"/>
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base.css' %}" type="text/css" />
 </head>
 <body class="weather-{{ description|slugify }}">
     <header class="header">
@@ -24,6 +24,9 @@
         <div class="weather-details">
             {% if error %}
                 <div class="error-message">{{ error }}</div>
+                {% if response %}
+                <pre>{{ response|safe }}</pre>
+                {% endif %}
             {% else %}
                 <div class="weather-info">
                     <h1 class="temp">{{ temp }}&#8451;</h1>
@@ -43,9 +46,9 @@
     <footer class="footer">
         <div class="footer-section about-us">
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Support</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'help' %}">Help</a></li>
+                <li><a href="{% url 'support' %}">Support</a></li>
             </ul>
         </div>
         <div class="footer-section social-media">
@@ -64,8 +67,8 @@
         </div>
         <div class="footer-section legal">
             <ul>
-                <li><a href="#">Terms of Use</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="{% url 'terms' %}">Terms of Use</a></li>
+                <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
             </ul>
         </div>
         <div class="footer-section copyright">
