@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="container2">
+    <h1 class="about-heading">About Our Weather App</h1>
+    <p>Welcome to our Weather App! Our application provides real-time weather updates for cities around the world. Whether you're planning your day or preparing for a trip, our app helps you stay informed about the weather conditions.</p>
+    <h2>Our features include:</h2>
+    <ul class="feature-list">
+        <li>Current temperature</li>
+        <li>Weather description</li>
+        <li>Humidity levels</li>
+        <li>Wind speed</li>
+        <li>Weather icons for visual representation</li>
+    </ul>
+    <p>We strive to deliver accurate and up-to-date weather information using the OpenWeatherMap API. Our user-friendly interface ensures that you can easily access the weather data you need.</p>
+    <p>Thank you for using our Weather App. We hope it helps you stay prepared and informed!</p>
+    <div class="back-button-container">
+        <a href="{% url 'index' %}" class="back-button">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
